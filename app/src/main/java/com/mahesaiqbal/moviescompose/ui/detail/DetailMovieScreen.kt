@@ -47,6 +47,7 @@ import com.mahesaiqbal.moviescompose.utils.dateFormat
 fun DetailMovieScreen(
     movieId: Int,
     viewModel: MoviesViewModel,
+    modifier: Modifier = Modifier,
     navigateBack: () -> Unit
 ) {
     viewModel.detailMovie.collectAsState(initial = Resource.Loading()).value.let { resource ->
@@ -65,6 +66,7 @@ fun DetailMovieScreen(
                         voteCount = detailMovie.voteCount.toString(),
                         releaseDate = dateFormat(detailMovie.releaseDate) ?: "",
                         overview = detailMovie.overview,
+                        modifier = modifier,
                         navigateBack = navigateBack,
                         favoriteClick = { newState ->
                             viewModel.setFavoritePopularMovie(detailMovie, newState)

@@ -2,6 +2,7 @@ package com.mahesaiqbal.moviescompose.ui.popular
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
 import com.airbnb.lottie.LottieComposition
 import com.mahesaiqbal.moviescompose.data.Resource
 import com.mahesaiqbal.moviescompose.ui.components.EmptyContent
@@ -13,6 +14,7 @@ fun PopularMoviesScreen(
     viewModel: MoviesViewModel,
     composition: LottieComposition?,
     animationState: Float,
+    modifier: Modifier = Modifier,
     navigateToDetail: (Int) -> Unit
 ) {
     viewModel.popularMovies.collectAsState(initial = Resource.Loading()).value.let { resource ->
@@ -25,6 +27,7 @@ fun PopularMoviesScreen(
                     if (it.isNotEmpty()) {
                         MoviesContent(
                             movies = it,
+                            modifier = modifier,
                             navigateToDetail = navigateToDetail
                         )
                     } else {
