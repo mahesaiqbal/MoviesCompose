@@ -80,7 +80,6 @@ dependencies {
 
     // Dependency for DI using Koin
     implementation 'io.insert-koin:koin-androidx-compose:3.4.0'
-//    implementation 'io.insert-koin:koin-android:3.3.1'
 
     // Dependencies for Retrofit and Okhttp
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -95,9 +94,6 @@ dependencies {
     // Dependencies for Coil Image Processing
     implementation "io.coil-kt:coil-compose:2.2.2"
 
-    // Dependency for Datetime Formatter using Joda Time
-    implementation 'net.danlew:android.joda:2.12.0'
-
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
@@ -107,7 +103,4 @@ dependencies {
 
     // Dependencies for Lottie Animation
     implementation 'com.airbnb.android:lottie-compose:5.2.0'
-
-    // Dependencies for Chucker
-//    debugImplementation 'com.github.chuckerteam.chucker:library:3.5.2'
 }

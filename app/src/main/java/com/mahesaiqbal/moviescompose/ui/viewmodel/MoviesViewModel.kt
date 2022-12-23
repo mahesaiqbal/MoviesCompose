@@ -48,6 +48,9 @@ class MoviesViewModel(private val useCase: MoviesUseCase) : ViewModel() {
         }
     }
 
+    fun setFavoritePopularMovie(movie: PopularMovies, newState: Boolean) =
+        useCase.setFavoritePopularMovie(movie, newState)
+
     private val _detailMovie: MutableStateFlow<Resource<PopularMovies>> =
         MutableStateFlow(Resource.Loading())
     val detailMovie: StateFlow<Resource<PopularMovies>> get() = _detailMovie
