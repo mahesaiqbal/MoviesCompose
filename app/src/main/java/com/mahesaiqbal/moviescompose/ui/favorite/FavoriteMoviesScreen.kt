@@ -1,4 +1,4 @@
-package com.mahesaiqbal.moviescompose.ui.bookmark
+package com.mahesaiqbal.moviescompose.ui.favorite
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -9,7 +9,7 @@ import com.mahesaiqbal.moviescompose.ui.components.MoviesContent
 import com.mahesaiqbal.moviescompose.ui.viewmodel.MoviesViewModel
 
 @Composable
-fun BookmarkScreen(
+fun FavoriteMoviesScreen(
     viewModel: MoviesViewModel,
     composition: LottieComposition?,
     animationState: Float,

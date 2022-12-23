@@ -39,8 +39,8 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.mahesaiqbal.moviescompose.R
 import com.mahesaiqbal.moviescompose.ui.about.AboutScreen
-import com.mahesaiqbal.moviescompose.ui.bookmark.BookmarkScreen
 import com.mahesaiqbal.moviescompose.ui.detail.DetailMovieScreen
+import com.mahesaiqbal.moviescompose.ui.favorite.FavoriteMoviesScreen
 import com.mahesaiqbal.moviescompose.ui.navigation.NavigationItem
 import com.mahesaiqbal.moviescompose.ui.navigation.Screen
 import com.mahesaiqbal.moviescompose.ui.popular.PopularMoviesScreen
@@ -97,8 +97,8 @@ fun MoviesApp(
                     }
                 )
             }
-            composable(Screen.Bookmark.route) {
-                BookmarkScreen(
+            composable(Screen.Favorite.route) {
+                FavoriteMoviesScreen(
                     viewModel = viewModel,
                     composition = lottieComposition,
                     animationState = lottieProgress,
@@ -176,9 +176,9 @@ fun BottomBar(
                 screen = Screen.Popular
             ),
             NavigationItem(
-                title = stringResource(R.string.menu_bookmark),
+                title = stringResource(R.string.menu_favorite),
                 icon = Icons.Default.Favorite,
-                screen = Screen.Bookmark
+                screen = Screen.Favorite
             ),
             NavigationItem(
                 title = stringResource(R.string.menu_about),
