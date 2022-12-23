@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.mahesaiqbal.moviescompose.ui.MoviesApp
 import com.mahesaiqbal.moviescompose.ui.theme.MoviesComposeTheme
 
@@ -20,6 +21,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
+                    val systemUiController = rememberSystemUiController()
+                    systemUiController.setStatusBarColor(
+                        color = MaterialTheme.colors.primary,
+                        darkIcons = false
+                    )
                     MoviesApp()
                 }
             }
