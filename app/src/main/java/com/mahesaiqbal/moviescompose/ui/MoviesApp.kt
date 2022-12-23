@@ -1,32 +1,13 @@
 package com.mahesaiqbal.moviescompose.ui
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -37,11 +18,11 @@ import androidx.navigation.navArgument
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
-import com.mahesaiqbal.moviescompose.R
 import com.mahesaiqbal.moviescompose.ui.about.AboutScreen
+import com.mahesaiqbal.moviescompose.ui.components.BottomBar
+import com.mahesaiqbal.moviescompose.ui.components.SearchBar
 import com.mahesaiqbal.moviescompose.ui.detail.DetailMovieScreen
 import com.mahesaiqbal.moviescompose.ui.favorite.FavoriteMoviesScreen
-import com.mahesaiqbal.moviescompose.ui.navigation.NavigationItem
 import com.mahesaiqbal.moviescompose.ui.navigation.Screen
 import com.mahesaiqbal.moviescompose.ui.popular.PopularMoviesScreen
 import com.mahesaiqbal.moviescompose.ui.theme.MoviesComposeTheme
@@ -120,92 +101,6 @@ fun MoviesApp(
                     viewModel = viewModel,
                     navigateBack = {
                         navController.navigateUp()
-                    }
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun SearchBar(
-    query: String,
-    onQueryChange: (String) -> Unit,
-    modifier: Modifier = Modifier
-) {
-    TextField(
-        value = query,
-        onValueChange = onQueryChange,
-        leadingIcon = {
-            Icon(
-                imageVector = Icons.Default.Search,
-                contentDescription = stringResource(R.string.search_movie)
-            )
-        },
-        colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = MaterialTheme.colors.surface,
-            disabledIndicatorColor = Color.Transparent,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent
-        ),
-        placeholder = {
-            Text(stringResource(R.string.search_movie))
-        },
-        modifier = modifier
-            .padding(16.dp)
-            .fillMaxWidth()
-            .heightIn(min = 32.dp)
-            .clip(RoundedCornerShape(48.dp))
-    )
-}
-
-@Composable
-fun BottomBar(
-    navController: NavHostController,
-    modifier: Modifier = Modifier
-) {
-    BottomNavigation(
-        modifier = modifier
-    ) {
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
-        val navigationItems = listOf(
-            NavigationItem(
-                title = stringResource(R.string.menu_popular_movies),
-                icon = Icons.Default.Star,
-                screen = Screen.Popular
-            ),
-            NavigationItem(
-                title = stringResource(R.string.menu_favorite),
-                icon = Icons.Default.Favorite,
-                screen = Screen.Favorite
-            ),
-            NavigationItem(
-                title = stringResource(R.string.menu_about),
-                icon = Icons.Default.AccountCircle,
-                screen = Screen.About
-            )
-        )
-
-        BottomNavigation {
-            navigationItems.map { item ->
-                BottomNavigationItem(
-                    icon = {
-                        Icon(
-                            imageVector = item.icon,
-                            contentDescription = item.title
-                        )
-                    },
-                    label = { Text(item.title) },
-                    selected = currentRoute == item.screen.route,
-                    onClick = {
-                        navController.navigate(item.screen.route) {
-                            popUpTo(navController.graph.findStartDestination().id) {
-                                saveState = true
-                            }
-                            restoreState = true
-                            launchSingleTop = true
-                        }
                     }
                 )
             }
