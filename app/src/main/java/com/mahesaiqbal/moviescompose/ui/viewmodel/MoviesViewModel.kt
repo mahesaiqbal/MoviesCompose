@@ -35,4 +35,28 @@ class MoviesViewModel(private val useCase: MoviesUseCase) : ViewModel() {
             }
         }
     }
+
+    private val _favoriteMovies: MutableStateFlow<Resource<List<PopularMovies>>> =
+        MutableStateFlow(Resource.Loading())
+    val favoriteMovies: StateFlow<Resource<List<PopularMovies>>> get() = _favoriteMovies
+
+    fun getFavoritePopularMovies() {
+        viewModelScope.launch {
+            useCase.getFavoritePopularMovies().collect { resource ->
+                _favoriteMovies.value = resource
+            }
+        }
+    }
+
+    private val _detailMovie: MutableStateFlow<Resource<PopularMovies>> =
+        MutableStateFlow(Resource.Loading())
+    val detailMovie: StateFlow<Resource<PopularMovies>> get() = _detailMovie
+
+    fun getDetailMovie(id: Int) {
+        viewModelScope.launch {
+            useCase.getDetailMovie(id).collect { resource ->
+                _detailMovie.value = resource
+            }
+        }
+    }
 }

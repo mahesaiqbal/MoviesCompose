@@ -100,6 +100,8 @@ fun MoviesApp(
             composable(Screen.Bookmark.route) {
                 BookmarkScreen(
                     viewModel = viewModel,
+                    composition = lottieComposition,
+                    animationState = lottieProgress,
                     navigateToDetail = { id ->
                         navController.navigate(Screen.DetailMovie.createRoute(id))
                     }
