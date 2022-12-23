@@ -70,6 +70,5 @@ val useCaseModule = module {
 }
 
 val viewModelModule = module {
-//    viewModel { MoviesViewModel(get()) }
     viewModelOf(::MoviesViewModel)
 }

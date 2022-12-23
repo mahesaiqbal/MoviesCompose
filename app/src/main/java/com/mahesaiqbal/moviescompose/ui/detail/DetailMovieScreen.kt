@@ -115,7 +115,7 @@ fun DetailMovieContent(
             Box {
                 AsyncImage(
                     model = stringResource(R.string.base_image_url_for_detail, posterPath),
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.movie_detail_image),
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .height(600.dp)
@@ -159,7 +159,7 @@ fun DetailMovieContent(
                     ) {
                         Icon(
                             imageVector = Icons.Default.Person,
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.popularity),
                             tint = Color.Blue
                         )
                         Text(
@@ -175,7 +175,7 @@ fun DetailMovieContent(
                     ) {
                         Icon(
                             imageVector = Icons.Default.Star,
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.star),
                             tint = Color.Gray
                         )
                         Text(
@@ -192,7 +192,7 @@ fun DetailMovieContent(
                     ) {
                         Icon(
                             imageVector = Icons.Default.ThumbUp,
-                            contentDescription = null,
+                            contentDescription = stringResource(R.string.liked),
                             tint = Color.Green
                         )
                         Text(
@@ -209,7 +209,7 @@ fun DetailMovieContent(
                 ) {
                     Icon(
                         imageVector = Icons.Default.DateRange,
-                        contentDescription = null,
+                        contentDescription = stringResource(R.string.release_date),
                         tint = Color.LightGray
                     )
                     Text(

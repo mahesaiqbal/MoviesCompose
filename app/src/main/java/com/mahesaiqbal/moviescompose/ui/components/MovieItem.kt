@@ -42,7 +42,7 @@ fun MovieItem(
             ) {
                 AsyncImage(
                     model = stringResource(R.string.base_image_url, posterPath),
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.movie_image),
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .size(250.dp)

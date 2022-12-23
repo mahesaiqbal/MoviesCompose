@@ -1,9 +1,5 @@
 package com.mahesaiqbal.moviescompose.domain.model
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
-
-@Parcelize
 data class PopularMovies(
     val id: Int,
     val backdropPath: String,
@@ -16,4 +12,4 @@ data class PopularMovies(
     val voteAverage: Double,
     val voteCount: Int,
     val isFavorite: Boolean
-): Parcelable
+)
