@@ -89,7 +89,11 @@ fun MoviesApp(
                 )
             }
             composable(Screen.About.route) {
-                AboutScreen()
+                AboutScreen(
+                    navigateBack = {
+                        navController.navigateUp()
+                    }
+                )
             }
             composable(
                 route = Screen.DetailMovie.route,

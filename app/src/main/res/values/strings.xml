@@ -7,6 +7,9 @@
     <string name="release_date_movie">Release Date: \n%s</string>
     <string name="base_image_url">https://image.tmdb.org/t/p/w500%s</string>
     <string name="base_image_url_for_detail">https://image.tmdb.org/t/p/original%s</string>
+    <string name="profile_photo">Profile photo</string>
+    <string name="profile_name">Mahesa Iqbal Ridwansyah</string>
+    <string name="profile_email">iqbalridwansyah.ir@gmail.com</string>
     <string name="try_again_later">Data is empty or something happened,\nplease try again later!</string>
     <string name="back">Back</string>
     <string name="favorite_movie">Favorite Movie</string>
