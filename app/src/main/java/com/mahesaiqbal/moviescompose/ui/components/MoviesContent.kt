@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.mahesaiqbal.moviescompose.domain.model.PopularMovies
+import com.mahesaiqbal.moviescompose.utils.dateFormat
 
 @Composable
 fun MoviesContent(
@@ -28,7 +29,7 @@ fun MoviesContent(
             MovieItem(
                 title = movie.title,
                 posterPath = movie.posterPath,
-                releaseDate = movie.releaseDate,
+                releaseDate = dateFormat(movie.releaseDate) ?: "",
                 modifier = modifier.clickable {
                     navigateToDetail(movie.id)
                 }
