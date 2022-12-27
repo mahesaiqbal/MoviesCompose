@@ -21,8 +21,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -36,6 +39,8 @@ fun AboutScreen(
     Column(
         modifier = modifier.fillMaxSize()
     ) {
+        val context = LocalContext.current
+
         Box {
             OutlinedButton(
                 onClick = { navigateBack() },
@@ -45,6 +50,9 @@ fun AboutScreen(
                 modifier = Modifier
                     .padding(16.dp)
                     .size(50.dp)
+                    .semantics(mergeDescendants = true) {
+                        contentDescription = context.resources.getString(R.string.button_back)
+                    }
             ) {
                 Icon(
                     imageVector = Icons.Default.ArrowBack,

@@ -18,6 +18,7 @@
     <string name="profile_email">iqbalridwansyah.ir@gmail.com</string>
     <string name="try_again_later">Data is empty or something happened,\nplease try again later!</string>
     <string name="back">Back</string>
+    <string name="button_back">Button Back</string>
     <string name="favorite_movie">Favorite Movie</string>
     <string name="successfully_added">%s was successfully added to favourites!</string>
     <string name="successfully_removed">%s was successfully removed from favourites!</string>
