@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.mahesaiqbal.moviescompose.R
 import com.mahesaiqbal.moviescompose.data.Resource
+import com.mahesaiqbal.moviescompose.domain.model.PopularMovies
 import com.mahesaiqbal.moviescompose.ui.viewmodel.MoviesViewModel
 import com.mahesaiqbal.moviescompose.utils.dateFormat
 
@@ -48,7 +49,8 @@ fun DetailMovieScreen(
     movieId: Int,
     viewModel: MoviesViewModel,
     modifier: Modifier = Modifier,
-    navigateBack: () -> Unit
+    navigateBack: () -> Unit,
+    favoriteClick: (PopularMovies, Boolean) -> Unit
 ) {
     viewModel.detailMovie.collectAsState(initial = Resource.Loading()).value.let { resource ->
         when (resource) {
@@ -69,7 +71,7 @@ fun DetailMovieScreen(
                         modifier = modifier,
                         navigateBack = navigateBack,
                         favoriteClick = { newState ->
-                            viewModel.setFavoritePopularMovie(detailMovie, newState)
+                            favoriteClick(detailMovie, newState)
                         }
                     )
                 }
@@ -120,7 +122,7 @@ fun DetailMovieContent(
                     contentDescription = stringResource(R.string.movie_detail_image),
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .height(600.dp)
+                        .height(500.dp)
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(bottomStart = 32.dp, bottomEnd = 32.dp))
                 )

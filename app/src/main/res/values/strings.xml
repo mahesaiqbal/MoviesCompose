@@ -19,4 +19,6 @@
     <string name="try_again_later">Data is empty or something happened,\nplease try again later!</string>
     <string name="back">Back</string>
     <string name="favorite_movie">Favorite Movie</string>
+    <string name="successfully_added">%s was successfully added to favourites!</string>
+    <string name="successfully_removed">%s was successfully removed from favourites!</string>
 </resources>
